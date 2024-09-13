@@ -68,7 +68,7 @@
         $rutaSshpass = '/usr/local/bin/sshpass'; // Se especifica la ruta de la libreria sshpass
         $rutaSsh = '/usr/bin/ssh'; // Se especifica la ruta de la libreria ssh
 
-        // COmando ssh
+        // Comando ssh
         $comandoSSH = "$rutaSshpass -p '$password' $rutaSsh -o StrictHostKeyChecking=no $username@$raspberryIp '/home/pi/pi-rfid/env/bin/python3 $archivoPython'";
 
         $output = [];
