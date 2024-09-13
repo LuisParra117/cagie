@@ -34,10 +34,40 @@
 
                 <div class = "fechas">
                     <label class = "lblFechaInicial" for = "fechaInicial">Fecha Inicial:</label>
-                    <input class = "fechaInicial" type="date" id="fechaInicial" name="fechaInicial" value="2024-09-10" min="2024-01-01" max="2024-09-13" />
+                    <input class = "fechaInicial" type="date" id="fechaInicial" name="fechaInicial" min="2024-01-01" max="2024-09-13" />
                     <label class = "lblFechaFinal" for = "fechaFinal">Fecha Final:</label>
-                    <input class = "fechaFinal" type="date" id="fechaFinal" name="fechaFinal" value="2024-09-12" min="2024-01-01" max="2024-09-13" />
-                </div>
+                    <input class = "fechaFinal" type="date" id="fechaFinal" name="fechaFinal" min="2024-01-01" max="2024-09-13" />
+                </div>                
+
+                <script>
+
+                    function setTodayDate() {
+                        const today = new Date();
+                        const year = today.getFullYear();
+                        const month = String(today.getMonth() + 1).padStart(2, '0');
+                        const day = String(today.getDate()).padStart(2, '0');
+                        const formattedDate = `${year}-${month}-${day}`;
+                        
+                        const fechaInicial = document.getElementById('fechaInicial');
+                        const fechaFinal = document.getElementById('fechaFinal');
+                        
+                        // Establecer el valor de los campos de fecha usando setAttribute
+                        fechaInicial.setAttribute('value', formattedDate);
+                        fechaFinal.setAttribute('value', formattedDate);
+                        
+                        // Forzar la actualización de los campos de fecha
+                        fechaInicial.value = formattedDate;
+                        fechaFinal.value = formattedDate;
+                        fechaInicial.dispatchEvent(new Event('change', { bubbles: true }));
+                        fechaFinal.dispatchEvent(new Event('change', { bubbles: true }));
+
+                        // Disparar un evento 'input' para asegurar que el valor se detecte
+                        fechaInicial.dispatchEvent(new Event('input', { bubbles: true }));
+                        fechaFinal.dispatchEvent(new Event('input', { bubbles: true }));
+                    }
+
+                    window.onload = setTodayDate;
+                </script>
                 
                 <p>‎ </p>
 
