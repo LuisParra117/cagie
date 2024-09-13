@@ -51,17 +51,14 @@
                         const fechaInicial = document.getElementById('fechaInicial');
                         const fechaFinal = document.getElementById('fechaFinal');
                         
-                        // Establecer el valor de los campos de fecha usando setAttribute
                         fechaInicial.setAttribute('value', formattedDate);
                         fechaFinal.setAttribute('value', formattedDate);
                         
-                        // Forzar la actualización de los campos de fecha
                         fechaInicial.value = formattedDate;
                         fechaFinal.value = formattedDate;
                         fechaInicial.dispatchEvent(new Event('change', { bubbles: true }));
                         fechaFinal.dispatchEvent(new Event('change', { bubbles: true }));
 
-                        // Disparar un evento 'input' para asegurar que el valor se detecte
                         fechaInicial.dispatchEvent(new Event('input', { bubbles: true }));
                         fechaFinal.dispatchEvent(new Event('input', { bubbles: true }));
                     }
